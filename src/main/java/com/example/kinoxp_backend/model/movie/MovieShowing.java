@@ -1,4 +1,4 @@
-package com.example.kinoxp_backend.model;
+package com.example.kinoxp_backend.model.movie;
 
 import jakarta.persistence.*;
 

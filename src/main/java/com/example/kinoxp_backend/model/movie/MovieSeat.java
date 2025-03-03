@@ -1,4 +1,4 @@
-package com.example.kinoxp_backend.model;
+package com.example.kinoxp_backend.model.movie;
 
 import jakarta.persistence.*;
 import java.util.List;
@@ -47,7 +47,6 @@ public int getId() {
     public MovieHall getMovieHall() {
         return movieHall;
     }
-    test
     public void setMovieHall(MovieHall movieHall) {
         this.movieHall = movieHall;
     }
