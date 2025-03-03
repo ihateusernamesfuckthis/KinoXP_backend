@@ -47,7 +47,7 @@ public int getId() {
     public MovieHall getMovieHall() {
         return movieHall;
     }
-
+    test
     public void setMovieHall(MovieHall movieHall) {
         this.movieHall = movieHall;
     }
