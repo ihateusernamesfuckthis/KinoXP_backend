@@ -1,22 +1,23 @@
-package com.example.kinoxp_backend.model.movie;
+package com.example.kinoxp_backend.model;
 
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 public class MovieSeat {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int rowNumber;
+    private int rowsNumber;
     private int seatNumber;
 
     @ManyToOne
     @JoinColumn(name = "movie_hall_id", nullable = false)
     private MovieHall movieHall;
 
-    @OneToMany(mappedBy = "movieSeat")
+    @OneToMany(mappedBy = "movieSeat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 
 
@@ -28,12 +29,12 @@ public int getId() {
         this.id = id;
     }
 
-    public int getRowNumber() {
-        return rowNumber;
+    public int getRowsNumber() {
+        return rowsNumber;
     }
 
-    public void setRowNumber(int rowNumber) {
-        this.rowNumber = rowNumber;
+    public void setRowsNumber(int rowsNumber) {
+        this.rowsNumber = rowsNumber;
     }
 
     public int getSeatNumber() {
@@ -47,7 +48,16 @@ public int getId() {
     public MovieHall getMovieHall() {
         return movieHall;
     }
+
     public void setMovieHall(MovieHall movieHall) {
         this.movieHall = movieHall;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
