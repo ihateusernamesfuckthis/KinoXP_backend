@@ -1,7 +1,7 @@
-package com.example.kinoxp_backend.service;
+package com.example.kinoxp_backend.service.staff;
 
-import com.example.kinoxp_backend.model.Shift;
-import com.example.kinoxp_backend.repository.ShiftRepository;
+import com.example.kinoxp_backend.model.staff.Shift;
+import com.example.kinoxp_backend.repository.staff.ShiftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

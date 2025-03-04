@@ -1,7 +1,7 @@
-package com.example.kinoxp_backend.service;
+package com.example.kinoxp_backend.service.movie;
 
-import com.example.kinoxp_backend.model.Booking;
-import com.example.kinoxp_backend.repository.BookingRepository;
+import com.example.kinoxp_backend.model.movie.Booking;
+import com.example.kinoxp_backend.repository.movie.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.example.kinoxp_backend.service;
+package com.example.kinoxp_backend.service.movie;
 
-import com.example.kinoxp_backend.model.Ticket;
-import com.example.kinoxp_backend.repository.TicketRepository;
+import com.example.kinoxp_backend.model.movie.Ticket;
+import com.example.kinoxp_backend.repository.movie.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class TicketService {
 
     @Autowired
-    private TicketRepository ticketRepository; // Field injection
+    private TicketRepository ticketRepository;
 
     // Get all tickets
     public List<Ticket> getAllTickets() {

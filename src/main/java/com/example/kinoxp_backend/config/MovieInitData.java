@@ -1,7 +1,6 @@
 package com.example.kinoxp_backend.config;
-
-import com.example.kinoxp_backend.model.*;
-import com.example.kinoxp_backend.repository.*;
+import com.example.kinoxp_backend.model.movie.*;
+import com.example.kinoxp_backend.repository.movie.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

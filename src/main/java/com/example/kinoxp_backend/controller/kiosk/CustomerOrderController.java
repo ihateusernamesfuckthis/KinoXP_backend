@@ -2,10 +2,7 @@ package com.example.kinoxp_backend.controller.kiosk;
 
 
 import com.example.kinoxp_backend.model.kiosk.CustomerOrder;
-import com.example.kinoxp_backend.repository.kiosk.CustomerOrderRepository;
-import com.example.kinoxp_backend.repository.kiosk.OrderItemRepository;
-import com.example.kinoxp_backend.repository.kiosk.ProductRepository;
-import com.example.kinoxp_backend.service.CustomerOrderService;
+import com.example.kinoxp_backend.service.kiosk.CustomerOrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

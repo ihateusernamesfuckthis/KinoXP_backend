@@ -1,5 +1,6 @@
-package com.example.kinoxp_backend.model;
+package com.example.kinoxp_backend.model.staff;
 
+import com.example.kinoxp_backend.model.staff.Shift;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
