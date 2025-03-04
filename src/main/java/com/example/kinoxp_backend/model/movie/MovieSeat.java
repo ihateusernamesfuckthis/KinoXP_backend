@@ -1,5 +1,7 @@
-package com.example.kinoxp_backend.model;
+package com.example.kinoxp_backend.model.movie;
 
+import com.example.kinoxp_backend.model.movie.MovieHall;
+import com.example.kinoxp_backend.model.movie.Ticket;
 import jakarta.persistence.*;
 import java.util.List;
 

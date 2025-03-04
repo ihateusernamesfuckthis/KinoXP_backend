@@ -2,7 +2,7 @@ package com.example.kinoxp_backend.controller.kiosk;
 
 
 import com.example.kinoxp_backend.model.kiosk.Product;
-import com.example.kinoxp_backend.service.ProductService;
+import com.example.kinoxp_backend.service.kiosk.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

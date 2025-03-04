@@ -1,12 +1,12 @@
 package com.example.kinoxp_backend.config;
 
 import com.example.kinoxp_backend.enums.StaffRole;
-import com.example.kinoxp_backend.model.Employee;
-import com.example.kinoxp_backend.model.Shift;
-import com.example.kinoxp_backend.model.ShiftSchedule;
-import com.example.kinoxp_backend.repository.EmployeeRepository;
-import com.example.kinoxp_backend.repository.ShiftRepository;
-import com.example.kinoxp_backend.repository.ShiftScheduleRepository;
+import com.example.kinoxp_backend.model.staff.Employee;
+import com.example.kinoxp_backend.model.staff.Shift;
+import com.example.kinoxp_backend.model.staff.ShiftSchedule;
+import com.example.kinoxp_backend.repository.staff.EmployeeRepository;
+import com.example.kinoxp_backend.repository.staff.ShiftRepository;
+import com.example.kinoxp_backend.repository.staff.ShiftScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

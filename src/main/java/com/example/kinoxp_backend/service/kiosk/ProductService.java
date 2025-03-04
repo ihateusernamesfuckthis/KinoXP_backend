@@ -1,4 +1,4 @@
-package com.example.kinoxp_backend.service;
+package com.example.kinoxp_backend.service.kiosk;
 
 import com.example.kinoxp_backend.model.kiosk.Product;
 import com.example.kinoxp_backend.repository.kiosk.ProductRepository;

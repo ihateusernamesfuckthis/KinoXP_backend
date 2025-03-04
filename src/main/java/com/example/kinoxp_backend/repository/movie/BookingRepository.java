@@ -1,6 +1,5 @@
-package com.example.kinoxp_backend.repository;
-
-import com.example.kinoxp_backend.model.Booking;
+package com.example.kinoxp_backend.repository.movie;
+import com.example.kinoxp_backend.model.movie.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

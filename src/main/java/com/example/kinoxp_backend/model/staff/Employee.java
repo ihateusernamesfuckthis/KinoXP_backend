@@ -1,4 +1,4 @@
-package com.example.kinoxp_backend.model;
+package com.example.kinoxp_backend.model.staff;
 
 import com.example.kinoxp_backend.enums.StaffRole;
 import jakarta.persistence.*;
