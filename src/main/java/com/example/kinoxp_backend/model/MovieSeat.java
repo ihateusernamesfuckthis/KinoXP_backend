@@ -5,18 +5,19 @@ import java.util.List;
 
 @Entity
 public class MovieSeat {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int rowNumber;
+    private int rowsNumber;
     private int seatNumber;
 
     @ManyToOne
     @JoinColumn(name = "movie_hall_id", nullable = false)
     private MovieHall movieHall;
 
-    @OneToMany(mappedBy = "movieSeat")
+    @OneToMany(mappedBy = "movieSeat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 
 
@@ -28,12 +29,12 @@ public int getId() {
         this.id = id;
     }
 
-    public int getRowNumber() {
-        return rowNumber;
+    public int getRowsNumber() {
+        return rowsNumber;
     }
 
-    public void setRowNumber(int rowNumber) {
-        this.rowNumber = rowNumber;
+    public void setRowsNumber(int rowsNumber) {
+        this.rowsNumber = rowsNumber;
     }
 
     public int getSeatNumber() {
@@ -44,11 +45,4 @@ public int getId() {
         this.seatNumber = seatNumber;
     }
 
-    public MovieHall getMovieHall() {
-        return movieHall;
-    }
-    test
-    public void setMovieHall(MovieHall movieHall) {
-        this.movieHall = movieHall;
-    }
 }
