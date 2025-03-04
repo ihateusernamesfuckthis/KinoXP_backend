@@ -17,6 +17,8 @@ public class Movie {
     private String genre;
     private int ageLimit;
     private String director;
+    private String description;
+    private String pictureUrl;
 
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -71,6 +73,22 @@ public class Movie {
 
     public List<MovieShowing> getShowings() {
         return showings;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 
     public void setShowings(List<MovieShowing> showings) {

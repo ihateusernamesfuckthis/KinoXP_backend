@@ -45,4 +45,19 @@ public int getId() {
         this.seatNumber = seatNumber;
     }
 
+    public MovieHall getMovieHall() {
+        return movieHall;
+    }
+
+    public void setMovieHall(MovieHall movieHall) {
+        this.movieHall = movieHall;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 }
