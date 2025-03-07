@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-class ShiftService {
+public class ShiftService {
     @Autowired
     private ShiftRepository shiftRepository;
 
@@ -18,5 +18,24 @@ class ShiftService {
 
     public List<Shift> getAllShifts() {
         return shiftRepository.findAll();
+    }
+
+    public Shift getShiftById(int id) {
+        return shiftRepository.findById(id).orElse(null);
+    }
+
+    public void deleteShift(int id) {
+        shiftRepository.deleteById(id);
+    }
+
+    public Shift updateShift(int id, Shift updatedShift) {
+        return shiftRepository.findById(id).map(shift -> {
+            shift.setEmployee(updatedShift.getEmployee());
+            shift.setDate(updatedShift.getDate());
+            shift.setStartTime(updatedShift.getStartTime());
+            shift.setEndTime(updatedShift.getEndTime());
+            shift.setShiftSchedule(updatedShift.getShiftSchedule());
+            return shiftRepository.save(shift);
+        }).orElse(null);
     }
 }

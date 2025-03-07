@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+// TODO Remove, its not needed, just use the date on shifts to filter which you want to see.
+
 @Entity
 public class ShiftSchedule {
     @Id
