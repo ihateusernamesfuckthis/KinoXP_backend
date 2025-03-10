@@ -24,19 +24,17 @@ public class ShiftController {
 
     @GetMapping
     public List<Shift> getAllShifts() {
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
         return shiftService.getAllShifts();
     }
 
     @GetMapping("/range")
-    public List<Shift> getShiftsByDateRange(@RequestParam String startDate, @RequestParam String endDate) {
-        LocalDate start = LocalDateTime.parse(startDate).toLocalDate();
-        LocalDate end = LocalDateTime.parse(endDate).toLocalDate();
-        return shiftService.getShiftsByDateRange(start, end);
+    public List<Shift> getShiftsByDateRange(@RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return shiftService.getShiftsByDateRange(startDate, endDate);
     }
 
     @GetMapping("/{id}")
