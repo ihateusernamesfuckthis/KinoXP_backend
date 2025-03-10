@@ -3,13 +3,13 @@ package com.example.kinoxp_backend.controller.staff;
 import com.example.kinoxp_backend.dto.staff.ShiftDTO;
 import com.example.kinoxp_backend.model.staff.Employee;
 import com.example.kinoxp_backend.model.staff.Shift;
-import com.example.kinoxp_backend.model.staff.ShiftSchedule;
 import com.example.kinoxp_backend.service.staff.EmployeeService;
-import com.example.kinoxp_backend.service.staff.ShiftScheduleService;
 import com.example.kinoxp_backend.service.staff.ShiftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
 import java.util.List;
 
@@ -21,8 +21,6 @@ public class ShiftController {
     private ShiftService shiftService;
     @Autowired
     private EmployeeService employeeService;
-    @Autowired
-    private ShiftScheduleService shiftScheduleService;
 
     @GetMapping
     public List<Shift> getAllShifts() {
@@ -34,6 +32,13 @@ public class ShiftController {
         return shiftService.getAllShifts();
     }
 
+    @GetMapping("/range")
+    public List<Shift> getShiftsByDateRange(@RequestParam String startDate, @RequestParam String endDate) {
+        LocalDate start = LocalDateTime.parse(startDate).toLocalDate();
+        LocalDate end = LocalDateTime.parse(endDate).toLocalDate();
+        return shiftService.getShiftsByDateRange(start, end);
+    }
+
     @GetMapping("/{id}")
     public Shift getShiftById(@PathVariable int id) {
         return shiftService.getShiftById(id);
@@ -41,21 +46,13 @@ public class ShiftController {
 
     @PostMapping
     public Shift saveShift(@RequestBody ShiftDTO shiftDTO) {
-        Employee employee = employeeService.getEmployeeById(shiftDTO.getEmployeeId()).isPresent() ? employeeService.getEmployeeById(shiftDTO.getEmployeeId()).get() : null;
-        int weekNumber = shiftDTO.getDate().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
-        ShiftSchedule shiftSchedule = shiftScheduleService.findByWeekNumber(weekNumber);
-
-        Shift shift = new Shift();
-        shift.setEmployee(employee);
-        shift.setDate(shiftDTO.getDate());
-        shift.setStartTime(shiftDTO.getStartTime());
-        shift.setEndTime(shiftDTO.getEndTime());
-        shift.setShiftSchedule(shiftSchedule);
+        Shift shift = convertShiftDTOtoShift(shiftDTO);
         return shiftService.saveShift(shift);
     }
 
     @PutMapping("/{id}")
-    public Shift updateShift(@PathVariable int id, @RequestBody Shift shift) {
+    public Shift updateShift(@PathVariable int id, @RequestBody ShiftDTO shiftDTO) {
+        Shift shift = convertShiftDTOtoShift(shiftDTO);
         return shiftService.updateShift(id, shift);
     }
 
@@ -64,4 +61,14 @@ public class ShiftController {
         shiftService.deleteShift(id);
     }
 
+
+    private Shift convertShiftDTOtoShift(ShiftDTO shiftDTO) {
+        Employee employee = employeeService.getEmployeeById(shiftDTO.getEmployeeId()).isPresent() ? employeeService.getEmployeeById(shiftDTO.getEmployeeId()).get() : null;
+        Shift shift = new Shift();
+        shift.setEmployee(employee);
+        shift.setDate(shiftDTO.getDate());
+        shift.setStartTime(shiftDTO.getStartTime());
+        shift.setEndTime(shiftDTO.getEndTime());
+        return shift;
+    }
 }

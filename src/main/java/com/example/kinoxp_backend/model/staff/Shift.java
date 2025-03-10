@@ -1,5 +1,6 @@
 package com.example.kinoxp_backend.model.staff;
 
+import com.example.kinoxp_backend.dto.staff.ShiftDTO;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -18,9 +19,6 @@ public class Shift {
     private LocalTime startTime;
     private LocalTime endTime;
 
-    @ManyToOne
-    @JoinColumn(name = "shiftScheduleId")
-    private ShiftSchedule shiftSchedule;
 
     public Shift() {
     }
@@ -63,13 +61,5 @@ public class Shift {
 
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
-    }
-
-    public ShiftSchedule getShiftSchedule() {
-        return shiftSchedule;
-    }
-
-    public void setShiftSchedule(ShiftSchedule shiftSchedule) {
-        this.shiftSchedule = shiftSchedule;
     }
 }
