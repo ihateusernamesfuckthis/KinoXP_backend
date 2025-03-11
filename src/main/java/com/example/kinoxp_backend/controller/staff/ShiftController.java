@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/shifts")
@@ -29,12 +30,15 @@ public class ShiftController {
 
     @GetMapping("/range")
     public List<Shift> getShiftsByDateRange(@RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         return shiftService.getShiftsByDateRange(startDate, endDate);
+    }
+
+    @GetMapping("/employee/{id}/range")
+    public List<Shift> getShiftsByEmployeeIdAndDateRange(
+            @PathVariable int id,
+            @RequestParam LocalDate startDate,
+            @RequestParam LocalDate endDate) {
+        return shiftService.getShiftsByEmployeeIdAndDateRange(id, startDate, endDate);
     }
 
     @GetMapping("/{id}")

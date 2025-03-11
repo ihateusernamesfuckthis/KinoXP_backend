@@ -53,5 +53,40 @@ public class ShiftInitData implements CommandLineRunner {
         shift2.setStartTime(LocalTime.of(13, 0));
         shift2.setEndTime(LocalTime.of(21, 0));
         shiftRepository.save(shift2);
+
+        Shift shift3 = new Shift();
+        shift3.setEmployee(employee1);
+        shift3.setDate(LocalDate.now().plusDays(1));
+        shift3.setStartTime(LocalTime.of(13, 0));
+        shift3.setEndTime(LocalTime.of(21, 0));
+        shiftRepository.save(shift3);
+
+        Shift shift4 = new Shift();
+        shift4.setEmployee(employee2);
+        shift4.setDate(LocalDate.now().plusDays(1));
+        shift4.setStartTime(LocalTime.of(9, 0));
+        shift4.setEndTime(LocalTime.of(17, 0));
+        shiftRepository.save(shift4);
+
+        Shift shift5 = new Shift();
+        shift5.setEmployee(employee3);
+        shift5.setDate(LocalDate.now().plusDays(2));
+        shift5.setStartTime(LocalTime.of(13, 0));
+        shift5.setEndTime(LocalTime.of(21, 0));
+        shiftRepository.save(shift5);
+
+        Shift shift6 = new Shift();
+        shift6.setEmployee(employee1);
+        shift6.setDate(LocalDate.now().plusDays(2));
+        shift6.setStartTime(LocalTime.of(9, 0));
+        shift6.setEndTime(LocalTime.of(17, 0));
+        shiftRepository.save(shift6);
+
+        Shift shift7 = new Shift();
+        shift7.setEmployee(employee2);
+        shift7.setDate(LocalDate.now().plusDays(3));
+        shift7.setStartTime(LocalTime.of(13, 0));
+        shift7.setEndTime(LocalTime.of(21, 0));
+        shiftRepository.save(shift7);
     }
 }

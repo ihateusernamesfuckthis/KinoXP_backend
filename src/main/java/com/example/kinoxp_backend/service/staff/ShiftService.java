@@ -22,6 +22,10 @@ public class ShiftService {
     }
 
 
+    public List<Shift> getShiftsByEmployeeIdAndDateRange(int employeeId, LocalDate startDate, LocalDate endDate) {
+        return shiftRepository.findByEmployee_IdAndDateBetween(employeeId, startDate, endDate);
+    }
+
     public List<Shift> getShiftsByDateRange(LocalDate startDate, LocalDate endDate) {
         return shiftRepository.findByDateBetween(startDate, endDate);
     }
