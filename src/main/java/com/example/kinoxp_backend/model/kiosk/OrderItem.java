@@ -1,5 +1,6 @@
 package com.example.kinoxp_backend.model.kiosk;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
+    @JsonBackReference
     private CustomerOrder customerOrder;
 
     private int quantity;
