@@ -3,7 +3,8 @@ package com.example.kinoxp_backend.model.movie;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class MovieHall {
@@ -15,7 +16,9 @@ public class MovieHall {
 
     @OneToMany(mappedBy = "movieHall", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<MovieSeat> seatList = new ArrayList<>();
+    private List<MovieShowing> showings = new ArrayList<>();
+
+    // Getters and setters
 
     public int getId() {
         return id;
@@ -25,11 +28,11 @@ public class MovieHall {
         this.id = id;
     }
 
-    public List<MovieSeat> getSeatList() {
-        return seatList;
+    public List<MovieShowing> getShowings() {
+        return showings;
     }
 
-    public void setSeatList(List<MovieSeat> seatList) {
-        this.seatList = seatList;
+    public void setShowings(List<MovieShowing> showings) {
+        this.showings = showings;
     }
 }
