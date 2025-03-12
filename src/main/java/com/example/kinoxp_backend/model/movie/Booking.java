@@ -15,9 +15,6 @@ public class Booking {
 
     private String customerName;
 
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ticket> ticketList = new ArrayList<>();
-
      public int getId() {
         return id;
     }
@@ -34,11 +31,4 @@ public class Booking {
         this.customerName = customerName;
     }
 
-    public List<Ticket> getTicketList() {
-        return ticketList;
-    }
-
-    public void setTicketList(List<Ticket> ticketList) {
-        this.ticketList = ticketList;
-    }
 }

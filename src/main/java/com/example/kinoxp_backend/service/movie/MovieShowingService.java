@@ -4,33 +4,35 @@ import com.example.kinoxp_backend.model.movie.MovieShowing;
 import com.example.kinoxp_backend.repository.movie.MovieShowingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class MovieShowingService {
 
     @Autowired
-    private MovieShowingRepository movieShowingRepository; // Field injection
+    private MovieShowingRepository movieShowingRepository;
 
-    // Get all movie showings
+    public MovieShowing saveMovieShowing(MovieShowing showing) {
+        return movieShowingRepository.save(showing);
+    }
+
     public List<MovieShowing> getAllMovieShowings() {
         return movieShowingRepository.findAll();
     }
 
-    // Get a single movie showing by ID
-    public Optional<MovieShowing> getMovieShowingById(int id) {
+    public List<MovieShowing> getMovieShowingsByMovieId(int movieId) {
+        return movieShowingRepository.findByMovieId(movieId);
+    }
+
+    public Optional<MovieShowing> findById(int id) {
         return movieShowingRepository.findById(id);
     }
 
-    // Add or update a movie showing
-    public MovieShowing saveMovieShowing(MovieShowing movieShowing) {
+    @Transactional
+    public MovieShowing save(MovieShowing movieShowing) {
         return movieShowingRepository.save(movieShowing);
     }
 
-    // Delete a movie showing by ID
-    public void deleteMovieShowing(int id) {
-        movieShowingRepository.deleteById(id);
-    }
 }

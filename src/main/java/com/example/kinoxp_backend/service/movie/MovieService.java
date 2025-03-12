@@ -20,8 +20,9 @@ public class MovieService {
     }
 
     // Get a single movie by ID
-    public Optional<Movie> getMovieById(int id) {
-        return movieRepository.findById(id);
+    public Movie getMovieById(int id) {
+        return movieRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Movie not found with id " + id));
     }
 
     // Add or update a movie
