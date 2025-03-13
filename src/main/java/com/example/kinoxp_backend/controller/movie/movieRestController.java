@@ -16,6 +16,13 @@ public class movieRestController {
     @Autowired
     private MovieService movieService;
 
+
+    @GetMapping("/allmovies")
+    public ResponseEntity<List<Movie>> getAllMovies(){
+        List<Movie> movies = movieService.getAllMovies();
+        return ResponseEntity.ok(movies);
+    }
+
     @GetMapping("/movieById")
     public ResponseEntity<Movie> movieById(@RequestParam int id){
         Movie movie = movieService.getMovieById(id);
