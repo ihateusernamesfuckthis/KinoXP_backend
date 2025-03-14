@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/booking")
-public class bookingRestController {
+public class BookingRestController {
 
         @Autowired
         private MovieSeatService movieSeatService;

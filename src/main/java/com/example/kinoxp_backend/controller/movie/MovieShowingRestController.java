@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/")
-public class movieShowingRestController {
+public class MovieShowingRestController {
 
     @Autowired
     private MovieShowingService movieShowingService;
@@ -26,7 +26,6 @@ public class movieShowingRestController {
     public MovieShowing createMovieShowing(@RequestBody MovieShowingDTO movieShowingDTO) {
         return movieShowingService.saveMovieShowing(convertMovieShowingDTO(movieShowingDTO));
     }
-
 
     @PutMapping("/movieShowingList/{id}")
     public MovieShowing updateMovieShowing(@PathVariable int id, @RequestBody MovieShowingDTO movieShowingDTO) {
