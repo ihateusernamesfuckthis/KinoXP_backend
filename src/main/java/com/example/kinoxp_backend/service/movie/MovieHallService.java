@@ -20,8 +20,8 @@ public class MovieHallService {
     }
 
     // Get a single movie hall by ID
-    public Optional<MovieHall> getMovieHallById(int id) {
-        return movieHallRepository.findById(id);
+    public MovieHall getMovieHallById(int id) {
+        return movieHallRepository.findById(id).orElse(null);
     }
 
     // Add or update a movie hall

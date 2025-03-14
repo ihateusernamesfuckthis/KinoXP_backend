@@ -1,9 +1,7 @@
 package com.example.kinoxp_backend.model.movie;
 
-import com.example.kinoxp_backend.model.movie.MovieHall;
-import com.example.kinoxp_backend.model.movie.Ticket;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 public class MovieSeat {
@@ -14,16 +12,13 @@ public class MovieSeat {
 
     private int rowsNumber;
     private int seatNumber;
-
+    private boolean isBooked;
     @ManyToOne
-    @JoinColumn(name = "movie_hall_id", nullable = false)
-    private MovieHall movieHall;
+    @JsonBackReference
+    @JoinColumn(name = "movie_showing_id", nullable = false)
+    private MovieShowing movieShowing;
 
-    @OneToMany(mappedBy = "movieSeat", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ticket> tickets;
-
-
-public int getId() {
+    public int getId() {
         return id;
     }
 
@@ -47,19 +42,20 @@ public int getId() {
         this.seatNumber = seatNumber;
     }
 
-    public MovieHall getMovieHall() {
-        return movieHall;
+    public boolean isBooked() {
+        return isBooked;
     }
 
-    public void setMovieHall(MovieHall movieHall) {
-        this.movieHall = movieHall;
+    public void setIsBooked(boolean booked) {
+        isBooked = booked;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
+    public MovieShowing getMovieShowing() {
+        return movieShowing;
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void setMovieShowing(MovieShowing movieShowing) {
+        this.movieShowing = movieShowing;
     }
+
 }

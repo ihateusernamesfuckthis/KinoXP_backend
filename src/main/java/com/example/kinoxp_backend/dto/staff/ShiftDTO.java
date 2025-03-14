@@ -1,42 +1,21 @@
-package com.example.kinoxp_backend.model.staff;
-
-import com.example.kinoxp_backend.dto.staff.ShiftDTO;
-import jakarta.persistence.*;
+package com.example.kinoxp_backend.dto.staff;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Entity
-public class Shift {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @ManyToOne
-    private Employee employee;
-
+public class ShiftDTO {
+    private int employeeId;
     private LocalDate date;
     private LocalTime startTime;
     private LocalTime endTime;
 
 
-    public Shift() {
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public LocalDate getDate() {
