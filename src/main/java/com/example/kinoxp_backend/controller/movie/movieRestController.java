@@ -16,11 +16,9 @@ public class movieRestController {
     @Autowired
     private MovieService movieService;
 
-
-    @GetMapping("/allmovies")
-    public ResponseEntity<List<Movie>> getAllMovies(){
-        List<Movie> movies = movieService.getAllMovies();
-        return ResponseEntity.ok(movies);
+    @GetMapping
+    public ResponseEntity<List<Movie>> getAllMovies() {
+        return ResponseEntity.ok(movieService.getAllMovies());
     }
 
     @GetMapping("/movieById")
