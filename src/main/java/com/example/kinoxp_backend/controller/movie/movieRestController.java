@@ -20,7 +20,7 @@ public class movieRestController {
     public ResponseEntity<List<Movie>> getAllMovies() {
         return ResponseEntity.ok(movieService.getAllMovies());
     }
-
+  
     @GetMapping("/movieById")
     public ResponseEntity<Movie> movieById(@RequestParam int id){
         Movie movie = movieService.getMovieById(id);
